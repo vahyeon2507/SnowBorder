@@ -3,12 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private float delayBeforeLoading = 2f; // 로딩 지연 시간
+    [SerializeField] private ParticleSystem FinishEffect;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("완주했습니다!");
-            SceneManager.LoadScene(0);
+        if (collision.CompareTag("Player"))
+            {
+            FinishEffect.Play();
+            Invoke(nameof(LoadScene), delayBeforeLoading);
         }
     }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
+    

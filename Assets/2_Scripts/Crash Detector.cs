@@ -3,13 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private float delayeforeLoading = 1f;
+    [SerializeField] private ParticleSystem crashEffect;
+
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ground"))
         {
+            crashEffect.Play();
             Debug.Log("오! 내 머리야!");
-            Debug.Log("0번씬을 로드합니다.");
-            SceneManager.LoadScene(0);
+            Invoke(nameof(LoadScene), delayeforeLoading);
         }
+    }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

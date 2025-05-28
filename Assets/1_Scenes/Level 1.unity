@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 57042258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.13896, y: 12.9, z: -10}
+  m_LocalPosition: {x: 9.877692, y: 12.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.13896, y: 12.9, z: -10}
+  m_LocalPosition: {x: 9.877692, y: 12.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1766,7 +1766,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -6481,7 +6481,7 @@ Transform:
   m_GameObject: {fileID: 1435881766}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5316265, y: -0.46623304, z: 0.46623316, w: 0.5316265}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 7.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6587,6 +6587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe97ba5daa14d340a80629cc90afb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeLoading: 1
+  FinishEffect: {fileID: 0}
 --- !u!1 &1605262525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6599,7 +6601,7 @@ GameObject:
   - component: {fileID: 1605262527}
   - component: {fileID: 1605262526}
   m_Layer: 0
-  m_Name: Particle System Right
+  m_Name: crashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6699,7 +6701,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -11414,7 +11416,7 @@ Transform:
   m_GameObject: {fileID: 1605262525}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.541, y: 0.338, z: -0.3}
+  m_LocalPosition: {x: 0.541, y: 0.3380003, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11468,6 +11470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe97ba5daa14d340a80629cc90afb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeLoading: 1
+  FinishEffect: {fileID: 1435881768}
 --- !u!61 &1837471614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11528,6 +11532,7 @@ GameObject:
   - component: {fileID: 1996057661}
   - component: {fileID: 1996057662}
   - component: {fileID: 1996057663}
+  - component: {fileID: 1996057664}
   m_Layer: 0
   m_Name: Ahyeon
   m_TagString: Player
@@ -11665,6 +11670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf3b639bbb1cf44099cbd2ad2a99a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torqueForce: 3
+  baseSpeed: 20
+  boostSpeed: 150
 --- !u!114 &1996057663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11677,6 +11685,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd034757e683134fac9126522263255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayeforeLoading: 1
+  crashEffect: {fileID: 1605262527}
+--- !u!252 &1996057664
+SurfaceEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996057655}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 1
+  m_SpeedVariation: 0
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
