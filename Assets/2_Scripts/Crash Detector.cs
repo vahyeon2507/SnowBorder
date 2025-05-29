@@ -5,14 +5,24 @@ public class CrashDetector : MonoBehaviour
 {
     [SerializeField] private float delayeforeLoading = 1f;
     [SerializeField] private ParticleSystem crashEffect;
+    [SerializeField] private AudioClip crashSound;
 
+    private AudioSource audioSource;
+    private PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ground"))
         {
             crashEffect.Play();
-            Debug.Log("오! 내 머리야!");
+            audioSource.PlayOneShot(crashSound);
+            playerController.GameOver();
             Invoke(nameof(LoadScene), delayeforeLoading);
         }
     }
